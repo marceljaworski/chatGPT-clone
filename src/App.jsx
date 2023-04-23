@@ -1,8 +1,16 @@
 import { useState, useEffect} from 'react';
 
 function App() {
-  const [ value, setValue] = useState(null)
+  const [ value, setValue] = useState(null);
   const [ message, setMessage] = useState(null);
+  const [ previousChats, setPreviousChats] = useState([]);
+  const [ currentTitle, setCurrentTitle] = useState(null);
+
+  const createNewChat = () => {
+    setMessage(null);
+    setValue("");
+    setCurrentTitle(null);
+  }
   const getMessages = async () => {
     const options = {
       method: "POST",
@@ -18,21 +26,44 @@ function App() {
       const data = await response.json();
       setMessage(data.choices[0].message);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
+  useEffect(() => {
+    console.log(currentTitle, value, message)
+    if (!currentTitle && value && message) {
+      setCurrentTitle(value)
+    }
+    if (currentTitle && value && message) {
+      setPreviousChats (prevChats => (
+        [...prevChats,
+          {
+            title: currentTitle,
+            role: "user",
+            content: value
+          },
+          {
+            title: currentTitle,
+            role: message.role,
+            content: message.content
+          }
+        ]
+      ))
+    }
+  }, [message, currentTitle])
+  console.log(previousChats)
   return (
     
     <div className="app">
       <section className="side-bar">
-        <button>+ New chat</button>
+        <button onClick={createNewChat}>+ New chat</button>
         <ul className="history">
           <li>BLUGH</li>
         </ul>
         <nav>Made by Marcel</nav>
       </section>
       <section className="main">
-        <h1>LZ Search</h1>
+        {!currentTitle && <h1>MarcelGPT</h1>}
         <ul className="feed">
           
         </ul>
