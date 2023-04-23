@@ -14,7 +14,7 @@ function App() {
     try {
       const response = await fetch('http://localhost:8000/completions', options)
       const data = await response.json();
-      console.log("data" + data)
+      console.log("data" + {data})
     } catch (error) {
       console.error(error)
     }
