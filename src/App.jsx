@@ -1,6 +1,24 @@
 
 function App() {
 
+  const getMessages = async () => {
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        message: "hello how are you?"
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', options);
+      const data = await response.json();
+      console.log("data" + data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
   return (
     
     <div className="app">
@@ -19,7 +37,7 @@ function App() {
         <div className="bottom-section">
           <div className="input-container">
             <input/>
-            <div id="submit">➢</div>
+            <div id="submit" onClick={getMessages}>➢</div>
           </div>
           <p className="info">
             We`ve trained a model called ChatGPT which interacts in a conversational way.
