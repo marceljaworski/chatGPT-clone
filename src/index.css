@@ -76,9 +76,7 @@ input {
   padding: 12px 15px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.5) 0 54px 55px,
-    rgba(0, 0, 0, 0.5) 0 -12px 30px,
     rgba(0, 0, 0, 0.5) 0 4px 6px,
-    rgba(0, 0, 0, 0.5) 0 12px 3px,
     rgba(0, 0, 0, 0.5) 0 -3px 5px;
 }
 input:focus {
@@ -91,14 +89,14 @@ input:focus {
   cursor: pointer;
 }
 .feed {
-  overflow: scroll;
+  /* overflow: scroll; */
   width: 100%;
   padding: 0;
 }
 .feed li {
   display: flex;
   background-color: #444654;
-  width: 100%;
+  max-width: 100%;
   padding: 20px;
   margin: 20px 0;
 }

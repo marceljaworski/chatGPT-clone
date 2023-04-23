@@ -55,12 +55,11 @@ function App() {
         ]
       ))
     }
-  }, [message, currentTitle])
-  console.log(previousChats)
+  }, [message, currentTitle]);
 
   const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle);
   const uniqueTitles = Array.from(new Set(previousChats.map(previousChat => previousChat.title)));
-  console.log(uniqueTitles)
+
   return (
     
     <div className="app">
@@ -90,7 +89,6 @@ function App() {
           </p>
         </div>
       </section>
-     
     </div>
    
   )
