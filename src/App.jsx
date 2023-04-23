@@ -12,7 +12,7 @@ function App() {
       }
     }
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', options);
+      const response = await fetch('http://localhost:8000/completions', options)
       const data = await response.json();
       console.log("data" + data)
     } catch (error) {
