@@ -27,8 +27,8 @@ function App() {
       }
     }
     try {
-      // const response = await fetch('http://localhost:8000/completions', options)
-      const response = await fetch('https://chat-gpt-clone-backend-qz7g.onrender.com/completions', options)
+      const response = await fetch('http://localhost:8000/completions', options)
+      // const response = await fetch('https://chat-gpt-clone-backend-qz7g.onrender.com/completions', options)
       const data = await response.json();
       setMessage(data.choices[0].message);
     } catch (error) {
