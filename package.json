@@ -5,8 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon main.js",
-    "start": "node main.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
