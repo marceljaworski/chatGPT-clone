@@ -42,6 +42,11 @@ app.post('/completions', async (req, res) => {
         console.error(error)
     }
 })
+server.use((req, res, next) => {
+    console.log(req.method, req.url);
+    next();
+})
+
 
 // Um das Frontend über das Backend auszuliefern, benötigen wir nur die folgenden zwei Zeilen.
 // Die erste Zeile stellt mit express.static alle(!) Dateien in einem Verzeichnis zur Verfügung (ähnlich res.sendFile).
