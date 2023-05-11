@@ -4,4 +4,4 @@ To use this application, first create an **.env** file in the root directory. Th
 
 - ``To Start the Frontend `npm run dev` ``
 
-- ``To Start the Backend `npm run start:backend` ``
+- ``To Start the Backend `npm run start` ``

@@ -12,8 +12,11 @@ export default defineConfig({
       '/completions': {
         target: `http://localhost:${PORT}`,
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/completions/, ''),
       },
     },
+  },
+  build: {
+    chunkSizeWarningLimit: 20000,
   },
 })
